@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Rose Day </title>
+<title>Happy Rose Day ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
@@ -17,133 +17,119 @@
 
 body {
     height: 100vh;
-    background: radial-gradient(circle at top, #ff1e56, #8b0000);
+    background: linear-gradient(135deg, #b3001b, #ff1e3c);
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     overflow: hidden;
 }
 
 /* CARD */
 .card {
-    width: 320px;
-    height: 420px;
-    background: rgba(255, 0, 0, 0.25);
-    backdrop-filter: blur(16px);
+    width: 90%;
+    max-width: 360px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
     border-radius: 24px;
-    padding: 35px 25px;
+    padding: 30px 20px 40px;
     text-align: center;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     position: relative;
 }
 
-.card h1 {
+/* TEXT */
+h1 {
+    color: #fff;
     font-size: 30px;
-    color: white;
-    margin-bottom: 20px;
-    text-shadow: 0 0 20px rgba(255,255,255,1);
+    margin-bottom: 10px;
+    text-shadow: 0 0 15px rgba(255,255,255,0.7);
 }
 
-.card p {
-    font-size: 20px;
-    color: #ffe6ea;
-    margin-bottom: 40px;
-    text-shadow: 0 0 12px rgba(255,255,255,0.7);
+p {
+    color: #fff;
+    font-size: 18px;
+    margin: 15px 0 25px;
+    line-height: 1.4;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
 }
 
 /* BUTTON */
 button {
+    padding: 14px 30px;
     border: none;
-    background: linear-gradient(135deg, #ff0033, #b3001b);
-    color: white;
-    padding: 16px 40px;
-    font-size: 20px;
-    border-radius: 40px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ff4d6d, #ff002b);
+    color: #fff;
+    font-size: 18px;
     cursor: pointer;
-    box-shadow: 0 0 30px rgba(255,0,60,1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     transition: transform 0.3s ease;
 }
 
 button:hover {
-    transform: scale(1.08);
+    transform: scale(1.1);
 }
 
 /* BOUQUET */
 .bouquet {
-    position: absolute;
-    bottom: -260px;
-    left: 50%;
-    transform: translateX(-50%) scale(0.7);
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 30px auto 0;
     display: none;
-    animation: rise 2s ease forwards;
 }
 
-@keyframes rise {
-    to {
-        bottom: 40px;
-        transform: translateX(-50%) scale(1);
-    }
-}
-
-/* ROSES */
+/* ROSE */
 .rose {
-    width: 60px;
-    height: 60px;
-    background: radial-gradient(circle at 30% 30%, #ff6b81, #b3001b);
-    border-radius: 50%;
     position: absolute;
-    box-shadow: 0 0 20px rgba(255,0,50,0.8);
+    width: 70px;
+    height: 70px;
 }
 
-.rose::before,
-.rose::after {
-    content: "";
+.petal {
     position: absolute;
-    width: 60px;
-    height: 60px;
-    background: radial-gradient(circle at 30% 30%, #ff6b81, #b3001b);
-    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    background: radial-gradient(circle at 30% 30%, #ff6f91, #b3001b);
+    border-radius: 60% 60% 60% 60%;
 }
 
-.rose::before {
-    left: -25px;
-}
-
-.rose::after {
-    right: -25px;
-}
+.p1 { transform: rotate(0deg) translate(12px); }
+.p2 { transform: rotate(60deg) translate(12px); }
+.p3 { transform: rotate(120deg) translate(12px); }
+.p4 { transform: rotate(180deg) translate(12px); }
+.p5 { transform: rotate(240deg) translate(12px); }
+.p6 { transform: rotate(300deg) translate(12px); }
 
 /* ROSE POSITIONS */
-.r1 { left: 70px; top: 0; }
-.r2 { left: 10px; top: 40px; }
-.r3 { left: 130px; top: 40px; }
-.r4 { left: 40px; top: 90px; }
-.r5 { left: 100px; top: 90px; }
+.r1 { left: 65px; top: 10px; }
+.r2 { left: 20px; top: 60px; }
+.r3 { left: 110px; top: 60px; }
 
 /* STEM */
 .stem {
-    width: 6px;
-    height: 120px;
-    background: #1f7a1f;
-    margin: 0 auto;
-    border-radius: 3px;
-}
-
-/* FLOATING PETALS */
-.petal {
     position: absolute;
-    color: #ff1e56;
-    font-size: 18px;
-    animation: float 6s linear infinite;
+    left: 97px;
+    top: 110px;
+    width: 6px;
+    height: 80px;
+    background: linear-gradient(#1f7a1f, #145214);
+    border-radius: 4px;
 }
 
-@keyframes float {
+/* APPEAR ANIMATION */
+.show {
+    display: block;
+    animation: pop 0.8s ease forwards;
+}
+
+@keyframes pop {
     from {
-        transform: translateY(0);
+        transform: scale(0);
         opacity: 0;
     }
     to {
-        transform: translateY(-120vh);
+        transform: scale(1);
         opacity: 1;
     }
 }
@@ -154,41 +140,48 @@ button:hover {
 
 <div class="card">
     <h1>Happy Rose Day 🌹</h1>
-    <p>This bouquet is for you ❤️<br>Because you make my life bloom</p>
+    <p>
+        This Bouquet Is For You ❤️<br>
+        Because You Make My Life Bloom
+    </p>
 
-    <button id="btn">Tap To Receive Roses</button>
+    <button onclick="showBouquet()">Tap For Your Roses</button>
 
     <div class="bouquet" id="bouquet">
-        <div class="rose r1"></div>
-        <div class="rose r2"></div>
-        <div class="rose r3"></div>
-        <div class="rose r4"></div>
-        <div class="rose r5"></div>
+        <div class="rose r1">
+            <div class="petal p1"></div>
+            <div class="petal p2"></div>
+            <div class="petal p3"></div>
+            <div class="petal p4"></div>
+            <div class="petal p5"></div>
+            <div class="petal p6"></div>
+        </div>
+
+        <div class="rose r2">
+            <div class="petal p1"></div>
+            <div class="petal p2"></div>
+            <div class="petal p3"></div>
+            <div class="petal p4"></div>
+            <div class="petal p5"></div>
+            <div class="petal p6"></div>
+        </div>
+
+        <div class="rose r3">
+            <div class="petal p1"></div>
+            <div class="petal p2"></div>
+            <div class="petal p3"></div>
+            <div class="petal p4"></div>
+            <div class="petal p5"></div>
+            <div class="petal p6"></div>
+        </div>
+
         <div class="stem"></div>
     </div>
 </div>
 
 <script>
-const btn = document.getElementById("btn");
-const bouquet = document.getElementById("bouquet");
-
-btn.addEventListener("click", () => {
-    bouquet.style.display = "block";
-    btn.style.display = "none";
-    petals();
-});
-
-function petals() {
-    setInterval(() => {
-        const p = document.createElement("div");
-        p.className = "petal";
-        p.innerHTML = "🌸";
-        p.style.left = Math.random() * 100 + "vw";
-        p.style.animationDuration = (4 + Math.random() * 4) + "s";
-        document.body.appendChild(p);
-
-        setTimeout(() => p.remove(), 8000);
-    }, 300);
+function showBouquet() {
+    document.getElementById("bouquet").classList.add("show");
 }
 </script>
 
