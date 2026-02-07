@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Rose Day ❤️</title>
 
+<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -17,119 +18,73 @@
 
 body {
     height: 100vh;
-    background: linear-gradient(135deg, #b3001b, #ff1e3c);
+    background: linear-gradient(135deg, #b8001f, #e60026);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
-/* CARD */
 .card {
-    width: 90%;
-    max-width: 360px;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(12px);
-    border-radius: 24px;
-    padding: 30px 20px 40px;
+    width: 320px;
+    background: #d81b3a;
+    border-radius: 28px;
+    padding: 28px 22px;
     text-align: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    position: relative;
+    color: #fff;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.35);
 }
 
-/* TEXT */
 h1 {
-    color: #fff;
-    font-size: 30px;
-    margin-bottom: 10px;
-    text-shadow: 0 0 15px rgba(255,255,255,0.7);
+    font-size: 28px;
+    margin-bottom: 14px;
+    text-shadow: 0 0 12px rgba(255,255,255,0.8);
 }
 
 p {
-    color: #fff;
-    font-size: 18px;
-    margin: 15px 0 25px;
-    line-height: 1.4;
-    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 22px;
+    text-shadow: 0 0 8px rgba(255,255,255,0.7);
 }
 
-/* BUTTON */
-button {
-    padding: 14px 30px;
+.rose-btn {
+    background: linear-gradient(135deg, #ff0033, #ff4d6d);
     border: none;
-    border-radius: 30px;
-    background: linear-gradient(135deg, #ff4d6d, #ff002b);
-    color: #fff;
-    font-size: 18px;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    border-radius: 40px;
     cursor: pointer;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
     transition: transform 0.3s ease;
 }
 
-button:hover {
-    transform: scale(1.1);
+.rose-btn:hover {
+    transform: scale(1.05);
 }
 
-/* BOUQUET */
-.bouquet {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    margin: 30px auto 0;
+/* Bouquet Image */
+.bouquet-img {
     display: none;
+    margin-top: 22px;
+    animation: rise 1s ease forwards;
 }
 
-/* ROSE */
-.rose {
-    position: absolute;
-    width: 70px;
-    height: 70px;
+.bouquet-img img {
+    width: 200px;
+    max-width: 100%;
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.5));
 }
 
-.petal {
-    position: absolute;
-    width: 38px;
-    height: 38px;
-    background: radial-gradient(circle at 30% 30%, #ff6f91, #b3001b);
-    border-radius: 60% 60% 60% 60%;
-}
-
-.p1 { transform: rotate(0deg) translate(12px); }
-.p2 { transform: rotate(60deg) translate(12px); }
-.p3 { transform: rotate(120deg) translate(12px); }
-.p4 { transform: rotate(180deg) translate(12px); }
-.p5 { transform: rotate(240deg) translate(12px); }
-.p6 { transform: rotate(300deg) translate(12px); }
-
-/* ROSE POSITIONS */
-.r1 { left: 65px; top: 10px; }
-.r2 { left: 20px; top: 60px; }
-.r3 { left: 110px; top: 60px; }
-
-/* STEM */
-.stem {
-    position: absolute;
-    left: 97px;
-    top: 110px;
-    width: 6px;
-    height: 80px;
-    background: linear-gradient(#1f7a1f, #145214);
-    border-radius: 4px;
-}
-
-/* APPEAR ANIMATION */
-.show {
-    display: block;
-    animation: pop 0.8s ease forwards;
-}
-
-@keyframes pop {
+/* Animation */
+@keyframes rise {
     from {
-        transform: scale(0);
+        transform: translateY(40px) scale(0.8);
         opacity: 0;
     }
     to {
-        transform: scale(1);
+        transform: translateY(0) scale(1);
         opacity: 1;
     }
 }
@@ -140,48 +95,29 @@ button:hover {
 
 <div class="card">
     <h1>Happy Rose Day 🌹</h1>
+
     <p>
-        This Bouquet Is For You ❤️<br>
+        This Bouquet Is For You 💖<br>
         Because You Make My Life Bloom
     </p>
 
-    <button onclick="showBouquet()">Tap For Your Roses</button>
+    <button class="rose-btn" onclick="showBouquet()">
+        Tap For Your Roses
+    </button>
 
-    <div class="bouquet" id="bouquet">
-        <div class="rose r1">
-            <div class="petal p1"></div>
-            <div class="petal p2"></div>
-            <div class="petal p3"></div>
-            <div class="petal p4"></div>
-            <div class="petal p5"></div>
-            <div class="petal p6"></div>
-        </div>
-
-        <div class="rose r2">
-            <div class="petal p1"></div>
-            <div class="petal p2"></div>
-            <div class="petal p3"></div>
-            <div class="petal p4"></div>
-            <div class="petal p5"></div>
-            <div class="petal p6"></div>
-        </div>
-
-        <div class="rose r3">
-            <div class="petal p1"></div>
-            <div class="petal p2"></div>
-            <div class="petal p3"></div>
-            <div class="petal p4"></div>
-            <div class="petal p5"></div>
-            <div class="petal p6"></div>
-        </div>
-
-        <div class="stem"></div>
+    <!-- Bouquet Image -->
+    <div class="bouquet-img" id="bouquet">
+        <img src="bouquet.png" alt="Rose Bouquet">
     </div>
 </div>
 
 <script>
 function showBouquet() {
-    document.getElementById("bouquet").classList.add("show");
+    // Hide button
+    document.querySelector('.rose-btn').style.display = 'none';
+
+    // Show bouquet
+    document.getElementById('bouquet').style.display = 'block';
 }
 </script>
 
